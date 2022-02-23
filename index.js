@@ -21,7 +21,7 @@ app.use(
 );
 app.use(cors());
 
-mongoose.connect("mongodb://localhost/resthub", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/testApi", { useNewUrlParser: true });
 
 var db = mongoose.connection;
 

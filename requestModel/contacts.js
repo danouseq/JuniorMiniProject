@@ -33,7 +33,7 @@ module.exports = {
   2: {
     query: {},
     path: {
-      contact_id: Joi.number().required(),
+      contact_id: Joi.string().required(),
     }, // Define for api path param here.
     header: {}, // Define if header required.
     model: "getContact",
@@ -43,7 +43,7 @@ module.exports = {
   3: {
     query: {},
     path: {
-      contact_id: Joi.number().required(),
+      contact_id: Joi.string().required(),
     }, // Define for api path param here.
     body: contactBody,
     header: {}, // Define if header required.
@@ -54,7 +54,7 @@ module.exports = {
   4: {
     query: {},
     path: {
-      contact_id: Joi.number().required(),
+      contact_id: Joi.string().required(),
     }, // Define for api path param here.
     body: contactBody,
     header: {}, // Define if header required.
@@ -65,7 +65,7 @@ module.exports = {
   5: {
     query: {},
     path: {
-      contact_id: Joi.number().required(),
+      contact_id: Joi.string().required(),
     }, // Define for api path param here.
     header: {}, // Define if header required.
     group: "Contact",
