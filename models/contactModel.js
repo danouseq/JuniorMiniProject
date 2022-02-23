@@ -1,7 +1,11 @@
 var mongoose = require("mongoose");
 // Setup schema
 var contactSchema = mongoose.Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },
@@ -11,6 +15,12 @@ var contactSchema = mongoose.Schema({
   },
   gender: String,
   phone: String,
+  note: String,
+  city: String,
+  street: String,
+  houseNumber: String,
+  zipCode: Number,
+  birthDate: Date,
   create_date: {
     type: Date,
     default: Date.now,

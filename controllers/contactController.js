@@ -1,5 +1,6 @@
 Contact = require("../models/contactModel");
 // Handle index actions
+
 exports.index = function (req, res) {
   Contact.get(function (err, contacts) {
     if (err) {
@@ -18,10 +19,20 @@ exports.index = function (req, res) {
 // Handle create contact actions
 exports.new = function (req, res) {
   var contact = new Contact();
-  contact.name = req.body.name ? req.body.name : contact.name;
-  contact.gender = req.body.gender;
-  contact.email = req.body.email;
-  contact.phone = req.body.phone;
+  contact.firstName = req.body.firstName
+    ? req.body.firstName
+    : contact.firstName;
+  contact.lastName = req.body.lastName ? req.body.lastName : contact.lastName;
+  contact.gender = req.body.gender || contact.gender;
+  contact.email = req.body.email || contact.email;
+  contact.phone = req.body.phone || contact.phone;
+  contact.note = req.body.note || contact.note;
+  contact.city = req.body.city || contact.city;
+  contact.street = req.body.street || contact.street;
+  contact.houseNumber = req.body.houseNumber || contact.houseNumber;
+  contact.zipCode = req.body.zipCode || contact.zipCode;
+  contact.birthDate = req.body.birthDate || contact.birthDate;
+
   // save the contact and check for errors
   contact.save(function (err) {
     // if (err)
@@ -46,10 +57,19 @@ exports.view = function (req, res) {
 exports.update = function (req, res) {
   Contact.findById(req.params.contact_id, function (err, contact) {
     if (err) res.send(err);
-    contact.name = req.body.name ? req.body.name : contact.name;
-    contact.gender = req.body.gender;
-    contact.email = req.body.email;
-    contact.phone = req.body.phone;
+    contact.firstName = req.body.firstName
+      ? req.body.firstName
+      : contact.firstName;
+    contact.lastName = req.body.lastName ? req.body.lastName : contact.lastName;
+    contact.gender = req.body.gender || contact.gender;
+    contact.email = req.body.email || contact.email;
+    contact.phone = req.body.phone || contact.phone;
+    contact.note = req.body.note || contact.note;
+    contact.city = req.body.city || contact.city;
+    contact.street = req.body.street || contact.street;
+    contact.houseNumber = req.body.houseNumber || contact.houseNumber;
+    contact.zipCode = req.body.zipCode || contact.zipCode;
+    contact.birthDate = req.body.birthDate || contact.birthDate;
     // save the contact and check for errors
     contact.save(function (err) {
       if (err) res.json(err);
