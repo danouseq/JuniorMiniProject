@@ -49,7 +49,34 @@ module.exports = {
         type: "string",
       },
     },
+    400: {
+      message: {
+        type: "string",
+      },
+    },
   },
+  postContact: {
+    200: {
+      message: {
+        type: "string",
+      },
+      body: {
+        type: "object",
+        properties: contactBody,
+      },
+    },
+    500: {
+      internal: {
+        type: "string",
+      },
+    },
+    400: {
+      message: {
+        type: "string",
+      },
+    },
+  },
+
   getContacts: {
     200: {
       message: {
@@ -65,6 +92,11 @@ module.exports = {
     },
     500: {
       internal: {
+        type: "string",
+      },
+    },
+    400: {
+      message: {
         type: "string",
       },
     },
@@ -84,6 +116,11 @@ module.exports = {
         type: "string",
       },
     },
+    400: {
+      message: {
+        type: "string",
+      },
+    },
   },
   deleteContact: {
     200: {
@@ -93,6 +130,11 @@ module.exports = {
     },
     500: {
       internal: {
+        type: "string",
+      },
+    },
+    400: {
+      message: {
         type: "string",
       },
     },
@@ -113,6 +155,11 @@ module.exports = {
         type: "string",
       },
     },
+    400: {
+      message: {
+        type: "string",
+      },
+    },
   },
   putContact: {
     200: {
@@ -126,6 +173,11 @@ module.exports = {
     },
     500: {
       internal: {
+        type: "string",
+      },
+    },
+    400: {
+      message: {
         type: "string",
       },
     },

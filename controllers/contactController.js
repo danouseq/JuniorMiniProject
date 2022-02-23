@@ -8,6 +8,7 @@ exports.index = function (req, res) {
         status: "error",
         message: err,
       });
+      return;
     }
     res.json({
       status: "success",
@@ -35,8 +36,8 @@ exports.new = function (req, res) {
 
   // save the contact and check for errors
   contact.save(function (err) {
-    // if (err)
-    //     res.json(err);
+    if (err) return res.status(400).json(err);
+
     res.json({
       message: "New contact created!",
       data: contact,
@@ -46,7 +47,8 @@ exports.new = function (req, res) {
 // Handle view contact info
 exports.view = function (req, res) {
   Contact.findById(req.params.contact_id, function (err, contact) {
-    if (err) res.send(err);
+    if (err) return res.status(400).send(err);
+    if (!contact) return res.status(404).send({ message: "Contact not found" });
     res.json({
       message: "Contact details loading..",
       data: contact,
@@ -56,7 +58,9 @@ exports.view = function (req, res) {
 // Handle update contact info
 exports.update = function (req, res) {
   Contact.findById(req.params.contact_id, function (err, contact) {
-    if (err) res.send(err);
+    if (!contact) return res.status(404).send({ message: "Contact not found" });
+    if (err) return res.status(400).send(err);
+
     contact.firstName = req.body.firstName
       ? req.body.firstName
       : contact.firstName;
@@ -72,7 +76,7 @@ exports.update = function (req, res) {
     contact.birthDate = req.body.birthDate || contact.birthDate;
     // save the contact and check for errors
     contact.save(function (err) {
-      if (err) res.json(err);
+      if (err) return res.status(400).json(err);
       res.json({
         message: "Contact Info updated",
         data: contact,
@@ -87,7 +91,9 @@ exports.delete = function (req, res) {
       _id: req.params.contact_id,
     },
     function (err, contact) {
-      if (err) res.send(err);
+      if (!contact)
+        return res.status(404).send({ message: "Contact not found" });
+      if (err) return res.status(400).send(err);
       res.json({
         status: "success",
         message: "Contact deleted",
