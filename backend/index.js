@@ -53,7 +53,7 @@ app.listen(port, function () {
  * @param path.responseModelPath Optional parameter which is path to folder in which responseModel defined, if not given response objects will not display on swagger documentation.
  */
 swagger.serveSwagger(app, "/swagger", options, {
-  routePath: "./routes",
-  requestModelPath: "./requestModel",
-  responseModelPath: "./responseModel",
+  routePath: "./backend/routes",
+  requestModelPath: "./backend/requestModel",
+  responseModelPath: "./backend/responseModel",
 });
