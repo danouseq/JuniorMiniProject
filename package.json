@@ -1,24 +1,19 @@
 {
-  "name": "testapi",
+  "name": "testApi",
   "version": "1.0.0",
-  "description": "Wraithy's test api for junior form fetching learning",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./backend/index.js"
-  },
-  "author": "Josef Kvapil",
-  "license": "ISC",
-  "dependencies": {
-    "@hapi/joi": "^17.1.1",
-    "body-parser": "^1.19.2",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongoose": "^6.2.3",
-    "morgan": "^1.10.0",
-    "swagger-generator-express": "^2.1.1"
+  "repository": "https://github.com/wraithyy/JuniorMiniProject.git",
+  "author": "Josef Kvapil <jkvapil@trask.cz>",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts":{
+    "start": "yarn concurrently \"yarn workspace frontend start\" \"yarn workspace frontend start\" "
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "concurrently": "^7.1.0"
   }
 }
